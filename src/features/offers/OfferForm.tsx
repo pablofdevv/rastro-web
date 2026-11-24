@@ -25,6 +25,7 @@ export function OfferForm({ listingId }: OfferFormProps) {
     try {
       await createOffer({
         listingId,
+        buyerId: user.id,
         amount: numAmount,
         status: "PENDING",
         createdAt: new Date().toISOString(),
