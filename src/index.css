@@ -1,0 +1,110 @@
+/* ===== Estilos generales de Rastro (se copian tal cual) ===== */
+:root {
+  --ink: #1c1917; /* texto */
+  --muted: #57534e; /* texto secundario */
+  --line: #e7e5e4; /* bordes */
+  --bg: #f6f5f1; /* fondo */
+  --accent: #0f766e; /* verde azulado: botones y enlaces */
+  --danger: #991b1b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+h1 {
+  margin: 0 0 16px;
+  font-size: 32px;
+}
+
+a {
+  color: var(--accent);
+}
+
+/* Formularios */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 9px 12px;
+  border: 1px solid #a8a29e;
+  border-radius: 8px;
+  background: white;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Botón rojo (borrar) */
+.danger {
+  background: white;
+  color: var(--danger);
+  border: 1px solid #fca5a5;
+}
+
+/* Mensajes */
+.error {
+  padding: 10px 12px;
+  border: 1px solid #fca5a5;
+  border-radius: 8px;
+  background: #fef2f2;
+  color: #7f1d1d;
+}
+
+.field-error {
+  margin: 0;
+  font-size: 13px;
+  color: var(--danger);
+}
+
+.loading {
+  color: var(--muted);
+}
+
+/* Rejilla de tarjetas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
