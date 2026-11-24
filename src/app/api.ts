@@ -62,6 +62,25 @@ export const api = createApi({
       }),
       invalidatesTags: ["Listing"],
     }),
+
+    // PATCH /listings/:id  (solo el precio)
+    updatePrice: builder.mutation<Listing, { id: string; price: number }>({
+      query: ({ id, price }) => ({
+        url: `/listings/${id}`,
+        method: "PATCH",
+        body: { price },
+      }),
+      invalidatesTags: ["Listing"],
+    }),
+
+    // DELETE /listings/:id
+    deleteListing: builder.mutation<void, string>({
+      query: (id) => ({
+        url: `/listings/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Listing"],
+    }),
   }),
 });
 
@@ -71,4 +90,6 @@ export const {
   useGetOffersQuery,
   useCreateOfferMutation,
   useCreateListingMutation,
+  useUpdatePriceMutation,
+  useDeleteListingMutation,
 } = api;
