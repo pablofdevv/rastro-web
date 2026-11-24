@@ -1,0 +1,70 @@
+import { Link, useParams } from "react-router-dom";
+import { useGetListingQuery } from "../../app/api";
+import { CATEGORY_LABELS, formatPrice } from "../../app/labels";
+import { Loading } from "../../components/ui/Loading";
+import { OfferList } from "../offers/OfferList";
+import { StatusBadge } from "./StatusBadge";
+import styles from "./ListingDetailPage.module.css";
+
+export function ListingDetailPage() {
+  const { id } = useParams<{ id: string }>();
+  const { data: listing, isLoading, isError } = useGetListingQuery(id ?? "");
+
+  if (isLoading) {
+    return <Loading text="Cargando anuncio..." />;
+  }
+
+  if (isError || !listing) {
+    return (
+      <>
+        <p className="error">Ese anuncio no existe.</p>
+        <p>
+          <Link to="/">← Volver a los anuncios</Link>
+        </p>
+      </>
+    );
+  }
+
+  const categoryLabel = CATEGORY_LABELS[listing.category] ?? listing.category;
+
+  return (
+    <>
+      <p>
+        <Link to="/">← Volver a los anuncios</Link>
+      </p>
+
+      <div className={styles.layout}>
+        <article className={styles.main}>
+          <h1>{listing.title}</h1>
+          <StatusBadge status={listing.status} />
+          <p className={styles.price}>{formatPrice(listing.price)}</p>
+          <p>{listing.description}</p>
+
+          <dl className={styles.facts}>
+            <div>
+              <dt>Categoría</dt>
+              <dd>{categoryLabel}</dd>
+            </div>
+            <div>
+              <dt>Ciudad</dt>
+              <dd>{listing.city}</dd>
+            </div>
+            <div>
+              <dt>Vendedor</dt>
+              <dd>{listing.seller.name}</dd>
+            </div>
+            <div>
+              <dt>Visitas</dt>
+              <dd>{listing.views}</dd>
+            </div>
+          </dl>
+        </article>
+
+        <aside className={styles.side}>
+          <div id="listing-action-slot"></div>
+          <OfferList listingId={listing.id} />
+        </aside>
+      </div>
+    </>
+  );
+}

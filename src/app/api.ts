@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import type { ListingFilters, ListingSummary } from "./types";
+import type { Listing, ListingFilters, ListingSummary, Offer } from "./types";
 
 export const api = createApi({
   reducerPath: "api",
@@ -20,7 +20,22 @@ export const api = createApi({
       }),
       providesTags: ["Listing"],
     }),
+
+    // GET /listings/:id
+    getListing: builder.query<Listing, string>({
+      query: (id) => `/listings/${id}`,
+      providesTags: ["Listing"],
+    }),
+
+    // GET /offers?listingId=listing-1
+    getOffers: builder.query<Offer[], string>({
+      query: (listingId) => ({
+        url: "/offers",
+        params: { listingId, _sort: "-createdAt" },
+      }),
+      providesTags: ["Offer"],
+    }),
   }),
 });
 
-export const { useGetListingsQuery } = api;
+export const { useGetListingsQuery, useGetListingQuery, useGetOffersQuery } = api;
