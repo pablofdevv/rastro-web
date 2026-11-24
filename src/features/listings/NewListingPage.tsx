@@ -45,6 +45,7 @@ export function NewListingPage() {
     try {
       const created = await createListing({
         ...data,
+        sellerId: user.id,
         status: "AVAILABLE",
         views: 0,
         publishedAt: new Date().toISOString(),

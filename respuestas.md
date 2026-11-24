@@ -29,7 +29,7 @@
 
 | # | Error / Síntoma | Causa detectada | Solución aplicada |
 |---|---|---|---|
-| 1 | *Pendiente de completar en Parte 6* | | |
-| 2 | *Pendiente de completar en Parte 6* | | |
-| 3 | *Pendiente de completar en Parte 6* | | |
-| 4 | *Pendiente de completar en Parte 6* | | |
+| 1 | Al pulsar un anuncio sale «Ese anuncio no existe» y en Red `/listings/undefined` con `400`. | En Express y MongoDB el identificador del documento es `_id` en lugar de `id` (usado en json-server), dejando el parámetro de ruta como `undefined`. | Se normalizó la respuesta en RTK Query mediante `transformResponse` asignando `id: String(item._id ?? item.id)` tanto en el listado como en la ficha. |
+| 2 | Al filtrar móviles de hasta 200 € aparece también el iPhone (380 €). | json-server utilizaba el filtro `price:lte` / `price_lte`, pero el endpoint `GET /api/listings` de Express lee específicamente el query param `maxPrice`. | Se añadió el parámetro `maxPrice` en la consulta `getListings` de RTK Query. |
+| 3 | En la ficha del anuncio salen «Ofertas (0)» y la pestaña Red muestra `404: No existe la ruta GET /api/offers?...`. | La API de Express no expone `GET /api/offers` por query param, sino la ruta anidada `GET /api/listings/:id/offers`. | Se actualizó la query `getOffers` en RTK Query para apuntar a `/listings/${listingId}/offers`. |
+| 4 | Al crear una oferta la API responde `400: buyerId no tiene un formato válido` (y al publicar `sellerId no tiene un formato válido`). | json-server guardaba el objeto anidado completo (`buyer`/`seller`), pero la API de Express valida estrictamente que se reciba un string con formato ObjectId en `buyerId` y `sellerId`. | Se agregaron `buyerId: buyer.id` al payload de `createOffer` y `sellerId: user.id` al payload de `createListing`. |
