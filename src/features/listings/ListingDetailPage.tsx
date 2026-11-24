@@ -2,12 +2,15 @@ import { Link, useParams } from "react-router-dom";
 import { useGetListingQuery } from "../../app/api";
 import { CATEGORY_LABELS, formatPrice } from "../../app/labels";
 import { Loading } from "../../components/ui/Loading";
+import { OfferForm } from "../offers/OfferForm";
 import { OfferList } from "../offers/OfferList";
+import { useCurrentUser } from "../users/CurrentUserContext";
 import { StatusBadge } from "./StatusBadge";
 import styles from "./ListingDetailPage.module.css";
 
 export function ListingDetailPage() {
   const { id } = useParams<{ id: string }>();
+  const { user } = useCurrentUser();
   const { data: listing, isLoading, isError } = useGetListingQuery(id ?? "");
 
   if (isLoading) {
@@ -25,6 +28,7 @@ export function ListingDetailPage() {
     );
   }
 
+  const isSeller = listing.seller.id === user.id;
   const categoryLabel = CATEGORY_LABELS[listing.category] ?? listing.category;
 
   return (
@@ -61,7 +65,13 @@ export function ListingDetailPage() {
         </article>
 
         <aside className={styles.side}>
-          <div id="listing-action-slot"></div>
+          {!isSeller && listing.status === "AVAILABLE" && (
+            <OfferForm listingId={listing.id} />
+          )}
+          {!isSeller && listing.status !== "AVAILABLE" && (
+            <p className="loading">Este anuncio ya no admite ofertas.</p>
+          )}
+
           <OfferList listingId={listing.id} />
         </aside>
       </div>
