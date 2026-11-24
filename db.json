@@ -1,0 +1,175 @@
+{
+  "listings": [
+    {
+      "id": "listing-1",
+      "title": "Seat Ibiza 2015",
+      "description": "Siempre en garaje, ITV pasada.",
+      "price": 6500,
+      "category": "Cars",
+      "status": "AVAILABLE",
+      "city": "Valencia",
+      "publishedAt": "2026-10-01T00:00:00.000Z",
+      "views": 340,
+      "seller": { "id": "660000000000000000000002", "name": "Luis Martín" },
+      "photos": [
+        { "url": "https://img.rastro.es/a1-1.jpg", "order": 1 },
+        { "url": "https://img.rastro.es/a1-2.jpg", "order": 2 }
+      ],
+      "attributes": { "brand": "Seat", "model": "Ibiza", "year": 2015, "km": 98000, "fuel": "petrol" }
+    },
+    {
+      "id": "listing-2",
+      "title": "Ford Focus 2012",
+      "description": "Correa cambiada hace un año.",
+      "price": 4200,
+      "category": "Cars",
+      "status": "AVAILABLE",
+      "city": "Castellón",
+      "publishedAt": "2026-10-12T00:00:00.000Z",
+      "views": 95,
+      "seller": { "id": "660000000000000000000004", "name": "Hugo Sanz" },
+      "photos": [
+        { "url": "https://img.rastro.es/a2-1.jpg", "order": 1 }
+      ],
+      "attributes": { "brand": "Ford", "model": "Focus", "year": 2012, "km": 165000, "fuel": "diesel" }
+    },
+    {
+      "id": "listing-3",
+      "title": "iPhone 13 128 GB",
+      "description": "Con funda y cargador.",
+      "price": 380,
+      "category": "Phones",
+      "status": "AVAILABLE",
+      "city": "Valencia",
+      "publishedAt": "2026-10-20T00:00:00.000Z",
+      "views": 512,
+      "seller": { "id": "660000000000000000000001", "name": "Ana García" },
+      "photos": [
+        { "url": "https://img.rastro.es/a3-1.jpg", "order": 1 },
+        { "url": "https://img.rastro.es/a3-2.jpg", "order": 2 },
+        { "url": "https://img.rastro.es/a3-3.jpg", "order": 3 }
+      ],
+      "attributes": { "brand": "Apple", "model": "iPhone 13", "storageGB": 128, "batteryPct": 87 }
+    },
+    {
+      "id": "listing-4",
+      "title": "Samsung Galaxy A52",
+      "description": "Pantalla sin rayas.",
+      "price": 150,
+      "category": "Phones",
+      "status": "SOLD",
+      "city": "Alicante",
+      "publishedAt": "2026-09-05T00:00:00.000Z",
+      "views": 210,
+      "seller": { "id": "660000000000000000000003", "name": "Marta Ruiz" },
+      "photos": [
+        { "url": "https://img.rastro.es/a4-1.jpg", "order": 1 }
+      ],
+      "attributes": { "brand": "Samsung", "model": "Galaxy A52", "storageGB": 128, "batteryPct": 80 }
+    },
+    {
+      "id": "listing-5",
+      "title": "Xiaomi Redmi Note 10",
+      "description": "Funciona perfecto.",
+      "price": 90,
+      "category": "Phones",
+      "status": "AVAILABLE",
+      "city": "Valencia",
+      "publishedAt": "2026-10-22T00:00:00.000Z",
+      "views": 48,
+      "seller": { "id": "660000000000000000000002", "name": "Luis Martín" },
+      "photos": [
+        { "url": "https://img.rastro.es/a5-1.jpg", "order": 1 }
+      ],
+      "attributes": { "brand": "Xiaomi", "model": "Redmi Note 10", "storageGB": 64, "batteryPct": 91 }
+    },
+    {
+      "id": "listing-6",
+      "title": "Chaqueta vaquera Levi's",
+      "description": "Poco uso.",
+      "price": 25,
+      "category": "Clothes",
+      "status": "AVAILABLE",
+      "city": "Alicante",
+      "publishedAt": "2026-10-25T00:00:00.000Z",
+      "views": 12,
+      "seller": { "id": "660000000000000000000003", "name": "Marta Ruiz" },
+      "photos": [],
+      "attributes": { "size": "M", "brand": "Levi's", "gender": "unisex" }
+    },
+    {
+      "id": "listing-7",
+      "title": "Zapatillas Nike Air",
+      "description": "Talla 42, como nuevas.",
+      "price": 40,
+      "category": "Clothes",
+      "status": "RESERVED",
+      "city": "Valencia",
+      "publishedAt": "2026-10-18T00:00:00.000Z",
+      "views": 77,
+      "seller": { "id": "660000000000000000000001", "name": "Ana García" },
+      "photos": [
+        { "url": "https://img.rastro.es/a7-1.jpg", "order": 1 }
+      ],
+      "attributes": { "size": "42", "brand": "Nike", "gender": "men" }
+    },
+    {
+      "id": "listing-8",
+      "title": "Mesa de comedor de roble",
+      "description": "Para 6 personas.",
+      "price": 120,
+      "category": "Furniture",
+      "status": "AVAILABLE",
+      "city": "Castellón",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "views": 160,
+      "seller": { "id": "660000000000000000000004", "name": "Hugo Sanz" },
+      "photos": [
+        { "url": "https://img.rastro.es/a8-1.jpg", "order": 1 }
+      ],
+      "attributes": { "material": "oak", "width": 160, "depth": 90, "height": 75 }
+    }
+  ],
+  "offers": [
+    {
+      "id": "offer-1",
+      "listingId": "listing-3",
+      "amount": 340,
+      "status": "PENDING",
+      "createdAt": "2026-10-27T00:00:00.000Z",
+      "buyer": { "id": "660000000000000000000005", "name": "Sara López" }
+    },
+    {
+      "id": "offer-2",
+      "listingId": "listing-1",
+      "amount": 6000,
+      "status": "REJECTED",
+      "createdAt": "2026-10-05T00:00:00.000Z",
+      "buyer": { "id": "660000000000000000000001", "name": "Ana García" }
+    },
+    {
+      "id": "offer-3",
+      "listingId": "listing-1",
+      "amount": 6200,
+      "status": "PENDING",
+      "createdAt": "2026-10-26T00:00:00.000Z",
+      "buyer": { "id": "660000000000000000000005", "name": "Sara López" }
+    },
+    {
+      "id": "offer-4",
+      "listingId": "listing-4",
+      "amount": 150,
+      "status": "ACCEPTED",
+      "createdAt": "2026-09-10T00:00:00.000Z",
+      "buyer": { "id": "660000000000000000000004", "name": "Hugo Sanz" }
+    },
+    {
+      "id": "offer-5",
+      "listingId": "listing-7",
+      "amount": 35,
+      "status": "ACCEPTED",
+      "createdAt": "2026-10-27T00:00:00.000Z",
+      "buyer": { "id": "660000000000000000000002", "name": "Luis Martín" }
+    }
+  ]
+}
