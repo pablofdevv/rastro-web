@@ -10,7 +10,13 @@ export const api = createApi({
     getListings: builder.query<ListingSummary[], ListingFilters>({
       query: ({ category, city, maxPrice }) => ({
         url: "/listings",
-        params: { category, city, "price:lte": maxPrice, _sort: "-publishedAt" },
+        params: {
+          category,
+          city,
+          "price:lte": maxPrice,
+          price_lte: maxPrice,
+          _sort: "-publishedAt",
+        },
       }),
       providesTags: ["Listing"],
     }),

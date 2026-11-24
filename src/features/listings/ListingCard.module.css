@@ -1,0 +1,68 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+/* La "foto": un recuadro de color según la categoría */
+.image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+  font-weight: 600;
+}
+
+.Cars {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.Phones {
+  background: #ede9fe;
+  color: #4c1d95;
+}
+
+.Clothes {
+  background: #fce7f3;
+  color: #831843;
+}
+
+.Furniture {
+  background: #fef3c7;
+  color: #78350f;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
